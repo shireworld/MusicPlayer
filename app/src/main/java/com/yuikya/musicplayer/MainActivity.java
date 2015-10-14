@@ -1,21 +1,49 @@
 package com.yuikya.musicplayer;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ProgressBar;
-import android.widget.SeekBar;
+
+import com.yuikya.musicplayer.adapter.TabPagerAdapter;
+import com.yuikya.musicplayer.adapter.TrackAdapter;
+import com.yuikya.musicplayer.db.TrackDataHelper;
+import com.yuikya.musicplayer.fragment.ArtistFragment;
+import com.yuikya.musicplayer.fragment.MusicFragment;
+import com.yuikya.musicplayer.models.Track;
+import com.yuikya.musicplayer.widget.DividerItemDecoration;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ViewPager viewPager;
+    private TabLayout tabLayout;
+    private TabPagerAdapter tabPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        tabPagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
+        tabPagerAdapter.addFragment(new MusicFragment(),"Music");
+        tabPagerAdapter.addFragment(new ArtistFragment(),"Artist");
+        tabPagerAdapter.addFragment(new MusicFragment(),"Music");
+        viewPager.setAdapter(tabPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
 
 
     }
@@ -26,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
