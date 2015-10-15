@@ -1,4 +1,4 @@
-package com.yuikya.musicplayer;
+package com.yuikya.musicplayer.loader;
 
 
 import android.content.ContentResolver;

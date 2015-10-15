@@ -1,4 +1,4 @@
-package com.yuikya.musicplayer;
+package com.yuikya.musicplayer.activity;
 
         import android.app.Activity;
         import android.os.Bundle;
@@ -8,6 +8,7 @@ package com.yuikya.musicplayer;
         import android.widget.LinearLayout.LayoutParams;
         import android.widget.TextView;
 
+        import com.yuikya.musicplayer.R;
         import com.yuikya.musicplayer.widget.FlowLayout;
 
 

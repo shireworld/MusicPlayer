@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yuikya.musicplayer.MusicLoader;
 import com.yuikya.musicplayer.R;
 import com.yuikya.musicplayer.adapter.TrackAdapter;
 import com.yuikya.musicplayer.db.TrackDataHelper;

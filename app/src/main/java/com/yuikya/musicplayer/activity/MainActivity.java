@@ -1,27 +1,20 @@
-package com.yuikya.musicplayer;
+package com.yuikya.musicplayer.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.yuikya.musicplayer.loader.MusicLoader;
+import com.yuikya.musicplayer.R;
 import com.yuikya.musicplayer.adapter.TabPagerAdapter;
-import com.yuikya.musicplayer.adapter.TrackAdapter;
 import com.yuikya.musicplayer.db.TrackDataHelper;
 import com.yuikya.musicplayer.fragment.AlbumFragment;
 import com.yuikya.musicplayer.fragment.ArtistFragment;
 import com.yuikya.musicplayer.fragment.MusicFragment;
-import com.yuikya.musicplayer.models.Track;
-import com.yuikya.musicplayer.widget.DividerItemDecoration;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
