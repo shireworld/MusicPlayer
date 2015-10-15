@@ -41,7 +41,7 @@ public class MusicFragment extends Fragment {
     public void onStart() {
         super.onStart();
         helper = new TrackDataHelper(getActivity());
-        helper.saveTrackList(MusicLoader.instance(getActivity().getContentResolver()).getTrackList());
+        //helper.saveTrackList(MusicLoader.instance(getActivity().getContentResolver()).getTrackList());
         trackList = helper.getTrackList();
 
         musicRecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));

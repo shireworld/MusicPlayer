@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import com.yuikya.musicplayer.adapter.TabPagerAdapter;
 import com.yuikya.musicplayer.adapter.TrackAdapter;
 import com.yuikya.musicplayer.db.TrackDataHelper;
+import com.yuikya.musicplayer.fragment.AlbumFragment;
 import com.yuikya.musicplayer.fragment.ArtistFragment;
 import com.yuikya.musicplayer.fragment.MusicFragment;
 import com.yuikya.musicplayer.models.Track;
@@ -27,11 +28,15 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private TabPagerAdapter tabPagerAdapter;
+    private TrackDataHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        helper = new TrackDataHelper(this);
+        helper.saveTrackList(MusicLoader.instance(getContentResolver()).getTrackList());
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -41,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         tabPagerAdapter = new TabPagerAdapter(getSupportFragmentManager());
         tabPagerAdapter.addFragment(new MusicFragment(),"Music");
         tabPagerAdapter.addFragment(new ArtistFragment(),"Artist");
-        tabPagerAdapter.addFragment(new MusicFragment(),"Music");
+        tabPagerAdapter.addFragment(new AlbumFragment(),"Album");
         viewPager.setAdapter(tabPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 

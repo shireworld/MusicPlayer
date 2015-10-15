@@ -44,7 +44,7 @@ public class ArtistFragment extends Fragment {
         artistList = helper.getArtists();
 
         artistRecyclerview.setLayoutManager(new LinearLayoutManager(getActivity()));
-        artistRecyclerview.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+        //artistRecyclerview.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
         artistAdapter = new ArtistAdapter(getActivity(),artistList);
         artistRecyclerview.setAdapter(artistAdapter);
     }
