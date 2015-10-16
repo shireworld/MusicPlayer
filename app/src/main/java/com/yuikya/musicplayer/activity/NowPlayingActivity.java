@@ -3,6 +3,7 @@ package com.yuikya.musicplayer.activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.yuikya.musicplayer.R;
 
 /**
@@ -35,15 +37,16 @@ public class NowPlayingActivity extends AppCompatActivity {
             window.setNavigationBarColor(Color.TRANSPARENT);
         }
         final LinearLayout top = (LinearLayout) findViewById(R.id.nowplaying_top);
+        final LinearLayout lin = (LinearLayout) findViewById(R.id.nowplaying_lin);
 
         //提取主色调
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.ic_launcher);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(),R.drawable.background);
         Palette.from(bitmap).generate(new Palette.PaletteAsyncListener() {
             @Override
             public void onGenerated(Palette palette) {
                 Palette.Swatch swatch = palette.getVibrantSwatch();
                 //setup color
-                top.setBackgroundColor(swatch.getRgb());
+                lin.setBackgroundColor(swatch.getRgb());
             }
         });
     }

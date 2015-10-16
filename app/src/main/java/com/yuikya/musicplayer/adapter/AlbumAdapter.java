@@ -40,7 +40,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         Album album = albumList.get(position);
         String alphabet = album.getName().substring(0, 1).toUpperCase();
         holder.albumName.setText(album.getName());
-        holder.albumArtist.setText(album.getCount() + " song");
+        holder.albumArtist.setText(album.getArtist());
         holder.albumImg.setImageResource(R.mipmap.ic_launcher);
         if (position > 0) {
             if (alphabet.equals(albumList.get(position - 1).getName().substring(0, 1).toUpperCase())) {
